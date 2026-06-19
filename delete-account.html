@@ -35,26 +35,23 @@
   .meta { color: #6b7280; font-size: 14px; }
   a { color: #2563EB; text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .preferred {
+  .promise {
     background: #d1fae5;
     border-left: 4px solid #059669;
     padding: 16px 20px;
     margin: 24px 0;
     border-radius: 4px;
   }
-  .preferred h3 { margin-top: 0; color: #065f46; }
-  .web {
+  .promise h3 { margin-top: 0; color: #065f46; }
+  .preferred {
     background: #eff6ff;
     border-left: 4px solid #2563EB;
     padding: 16px 20px;
     margin: 24px 0;
     border-radius: 4px;
   }
-  .web h3 { margin-top: 0; color: #1e40af; }
-  .button-row {
-    text-align: center;
-    margin: 24px 0;
-  }
+  .preferred h3 { margin-top: 0; color: #1e40af; }
+  .button-row { text-align: center; margin: 24px 0; }
   .cta {
     display: inline-block;
     background: #DC2626;
@@ -91,78 +88,101 @@
 <body>
 
 <header>
-  <h1>Delete Your Mikdar Account</h1>
+  <h1>Delete Your Mikdar Data</h1>
   <p class="meta">App: <strong>Mikdar</strong> &middot; Last updated: 19 June 2026</p>
 </header>
 
-<p>You can permanently delete your Mikdar account and all server-side data we hold about you. There are two ways to do this. The in-app option is fastest and requires no waiting.</p>
+<div class="promise">
+<h3>Important: there is no account to delete on our side</h3>
+<p style="margin-bottom:0;">Mikdar does not collect or store any of your data on any server we own. There is no &ldquo;Mikdar account&rdquo; in the cloud. Everything you enter lives on your device only.</p>
+<p style="margin-bottom:0;">This page exists to explain how to remove all of your Mikdar data, and how to revoke the optional Google Drive permission if you used the backup feature.</p>
+</div>
 
-<div class="preferred">
-<h3>Option 1 — In the app (recommended, instant)</h3>
+<h2>Option 1 — Remove all data from your device</h2>
+
+<p>This wipes everything Mikdar has ever stored on your phone: transactions, debts, invoices, reminders, calculator history, settings, PIN, recovery key, and any encrypted backup files cached locally.</p>
+
 <ol>
   <li>Open Mikdar on your phone.</li>
-  <li>Go to <strong>Settings → Backup</strong>.</li>
+  <li>Go to <strong>Settings</strong>.</li>
+  <li>Scroll to the bottom and tap <strong>Reset all data</strong>.</li>
+  <li>Confirm. Everything Mikdar stored is removed immediately.</li>
+</ol>
+
+<p>Or simply <strong>uninstall the app</strong> — Android removes all of Mikdar's on-device data automatically.</p>
+
+<h2>Option 2 — Revoke the Google Drive permission (if you used backup)</h2>
+
+<p>If you enabled the optional Google Drive backup feature, Mikdar holds a permission to write files into your own Drive. Removing the permission is your decision and takes seconds.</p>
+
+<div class="preferred">
+<h3>From inside Mikdar (recommended)</h3>
+<ol>
+  <li>Open Mikdar &rarr; <strong>Settings</strong> &rarr; <strong>Backup</strong>.</li>
   <li>Scroll to the bottom of the Google Drive section.</li>
   <li>Tap <strong>Delete account</strong>.</li>
-  <li>Confirm the dialog.</li>
 </ol>
-<p style="margin-bottom:0;">This removes your Firestore profile, deletes your Firebase Authentication record, and revokes Mikdar's access to your Google account — all immediately.</p>
+<p style="margin-bottom:0;">This signs you out of Google in the app and revokes Mikdar's Drive access &mdash; immediately.</p>
 </div>
 
-<div class="web">
-<h3>Option 2 — By email (if you no longer have the app)</h3>
-<p>If you have uninstalled Mikdar, lost access to your device, or cannot use the in-app option for any reason, email us and we will delete your account manually.</p>
+<p><strong>From your Google account directly</strong> &mdash; works even if you no longer have the app installed:</p>
+<ol>
+  <li>Open <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a> in any browser.</li>
+  <li>Find <strong>Mikdar</strong> in the list of apps with access.</li>
+  <li>Click <strong>Remove access</strong>.</li>
+</ol>
+
+<h2>Option 3 — Delete your Drive backup files</h2>
+
+<p>Encrypted backup files live in your own Google Drive (we do not have access to them). To delete them:</p>
+
+<ol>
+  <li>Open <a href="https://drive.google.com" target="_blank" rel="noopener">drive.google.com</a>.</li>
+  <li>Find the folder named <code>Mikdar/</code>.</li>
+  <li>Delete the folder (and remember to empty the Trash if you want immediate permanent deletion).</li>
+</ol>
+
+<p>Or, before uninstalling, delete individual backups from inside the app: <strong>Settings &rarr; Backup &rarr; Cloud backups</strong> &rarr; tap the trash icon next to each file.</p>
+
+<h2>Need help?</h2>
+
+<p>If anything above does not work, or you have any other privacy question, email us:</p>
+
 <div class="button-row">
-  <a class="cta" href="mailto:info@ezomfy.com?subject=Mikdar%20account%20deletion%20request&body=Hello%2C%0A%0AI%20would%20like%20to%20permanently%20delete%20my%20Mikdar%20account.%0A%0AThe%20email%20address%20associated%20with%20my%20Google%20sign-in%20is%3A%20%5Byour%20Google%20email%5D%0A%0AThank%20you.">Email a deletion request</a>
-</div>
-<p>Or copy this email address: <strong>info@ezomfy.com</strong></p>
-<p>Please include:</p>
-<ul>
-  <li>The email address of the Google account you used to sign in to Mikdar.</li>
-  <li>A short confirmation that you want your account deleted permanently.</li>
-</ul>
-<p style="margin-bottom:0;">We process verified email requests within <strong>30 days</strong>. You will receive a confirmation email once your data has been removed.</p>
+  <a class="cta" href="mailto:info@ezomfy.com?subject=Mikdar%20data%20deletion%20help&body=Hello%2C%0A%0AI%20need%20help%20deleting%20my%20Mikdar%20data.%0A%0A">Email us for help</a>
 </div>
 
-<h2>What gets deleted</h2>
+<p>Or copy this address: <strong>info@ezomfy.com</strong>.</p>
+
+<h2>What gets deleted, and when</h2>
 
 <table>
   <thead>
-    <tr><th>Data</th><th>What happens</th></tr>
+    <tr><th>Item</th><th>Where it lives</th><th>How to delete</th></tr>
   </thead>
   <tbody>
     <tr>
-      <td>Firestore profile (<code>users/{your-uid}</code>): name, email, photo URL, country, locale, platform, timestamps</td>
-      <td><strong>Deleted permanently.</strong></td>
+      <td>Transactions, debts, invoices, reminders, settings, PIN, recovery key</td>
+      <td>Your device only</td>
+      <td>In-app Reset, or uninstall</td>
     </tr>
     <tr>
-      <td>Firebase Authentication user</td>
-      <td><strong>Deleted permanently.</strong></td>
+      <td>Google Drive permission grant</td>
+      <td>Your Google account</td>
+      <td>In-app Delete account, or revoke at myaccount.google.com</td>
     </tr>
     <tr>
-      <td>Mikdar's access to your Google Drive</td>
-      <td><strong>Revoked.</strong> The app loses its <code>drive.file</code> grant.</td>
+      <td>Encrypted backup files</td>
+      <td>Your own Google Drive</td>
+      <td>Delete from drive.google.com or the in-app cloud backup list</td>
     </tr>
     <tr>
-      <td>Encrypted backup files in your own Google Drive (<code>Mikdar/</code> folder)</td>
-      <td><strong>Not deleted automatically.</strong> They live in <em>your</em> Drive, not ours, and only you can access them. You can delete them from <a href="https://drive.google.com" target="_blank" rel="noopener">drive.google.com</a> if you wish.</td>
-    </tr>
-    <tr>
-      <td>On-device data (transactions, debts, invoices, reminders, settings, PIN, recovery key)</td>
-      <td><strong>Not affected</strong> by account deletion. Use the app's <strong>Settings → Reset</strong> option, or uninstall the app, to remove on-device data.</td>
-    </tr>
-    <tr>
-      <td>Crashlytics crash reports (if you didn't disable them)</td>
-      <td>Anonymous crash reports retained per Google's standard retention policy (typically 90 days). They contain no transaction content.</td>
+      <td>Anything on our servers</td>
+      <td>&mdash;</td>
+      <td>Nothing exists. We do not run any server with your data.</td>
     </tr>
   </tbody>
 </table>
-
-<h2>Want to keep using the app without an account?</h2>
-<p>You can. Deleting your account does not uninstall Mikdar. After deletion, you remain signed out — every core feature still works locally on your device.</p>
-
-<h2>Questions</h2>
-<p>If you have any question about the deletion process, email <strong><a href="mailto:info@ezomfy.com">info@ezomfy.com</a></strong>.</p>
 
 <footer>
   <p>&copy; 2026 Mikdar. <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
