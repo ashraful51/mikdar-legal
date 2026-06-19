@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Account — Mikdar</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+    background: #ffffff;
+  }
+  header {
+    border-bottom: 2px solid #DC2626;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+  }
+  h1 { font-size: 28px; margin: 0 0 8px; color: #DC2626; }
+  h2 { font-size: 20px; margin: 32px 0 12px; color: #1f2937; }
+  h3 { font-size: 16px; margin: 20px 0 8px; color: #374151; }
+  p, li { font-size: 15px; }
+  ul, ol { padding-left: 24px; }
+  li { margin-bottom: 6px; }
+  code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .meta { color: #6b7280; font-size: 14px; }
+  a { color: #2563EB; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .preferred {
+    background: #d1fae5;
+    border-left: 4px solid #059669;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 4px;
+  }
+  .preferred h3 { margin-top: 0; color: #065f46; }
+  .web {
+    background: #eff6ff;
+    border-left: 4px solid #2563EB;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 4px;
+  }
+  .web h3 { margin-top: 0; color: #1e40af; }
+  .button-row {
+    text-align: center;
+    margin: 24px 0;
+  }
+  .cta {
+    display: inline-block;
+    background: #DC2626;
+    color: #ffffff !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .cta:hover { background: #b91c1c; text-decoration: none; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f9fafb; font-weight: 600; }
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Delete Your Mikdar Account</h1>
+  <p class="meta">App: <strong>Mikdar</strong> &middot; Last updated: 19 June 2026</p>
+</header>
+
+<p>You can permanently delete your Mikdar account and all server-side data we hold about you. There are two ways to do this. The in-app option is fastest and requires no waiting.</p>
+
+<div class="preferred">
+<h3>Option 1 — In the app (recommended, instant)</h3>
+<ol>
+  <li>Open Mikdar on your phone.</li>
+  <li>Go to <strong>Settings → Backup</strong>.</li>
+  <li>Scroll to the bottom of the Google Drive section.</li>
+  <li>Tap <strong>Delete account</strong>.</li>
+  <li>Confirm the dialog.</li>
+</ol>
+<p style="margin-bottom:0;">This removes your Firestore profile, deletes your Firebase Authentication record, and revokes Mikdar's access to your Google account — all immediately.</p>
+</div>
+
+<div class="web">
+<h3>Option 2 — By email (if you no longer have the app)</h3>
+<p>If you have uninstalled Mikdar, lost access to your device, or cannot use the in-app option for any reason, email us and we will delete your account manually.</p>
+<div class="button-row">
+  <a class="cta" href="mailto:ashraful5144@gmail.com?subject=Mikdar%20account%20deletion%20request&body=Hello%2C%0A%0AI%20would%20like%20to%20permanently%20delete%20my%20Mikdar%20account.%0A%0AThe%20email%20address%20associated%20with%20my%20Google%20sign-in%20is%3A%20%5Byour%20Google%20email%5D%0A%0AThank%20you.">Email a deletion request</a>
+</div>
+<p>Or copy this email address: <strong>ashraful5144@gmail.com</strong></p>
+<p>Please include:</p>
+<ul>
+  <li>The email address of the Google account you used to sign in to Mikdar.</li>
+  <li>A short confirmation that you want your account deleted permanently.</li>
+</ul>
+<p style="margin-bottom:0;">We process verified email requests within <strong>30 days</strong>. You will receive a confirmation email once your data has been removed.</p>
+</div>
+
+<h2>What gets deleted</h2>
+
+<table>
+  <thead>
+    <tr><th>Data</th><th>What happens</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Firestore profile (<code>users/{your-uid}</code>): name, email, photo URL, country, locale, platform, timestamps</td>
+      <td><strong>Deleted permanently.</strong></td>
+    </tr>
+    <tr>
+      <td>Firebase Authentication user</td>
+      <td><strong>Deleted permanently.</strong></td>
+    </tr>
+    <tr>
+      <td>Mikdar's access to your Google Drive</td>
+      <td><strong>Revoked.</strong> The app loses its <code>drive.file</code> grant.</td>
+    </tr>
+    <tr>
+      <td>Encrypted backup files in your own Google Drive (<code>Mikdar/</code> folder)</td>
+      <td><strong>Not deleted automatically.</strong> They live in <em>your</em> Drive, not ours, and only you can access them. You can delete them from <a href="https://drive.google.com" target="_blank" rel="noopener">drive.google.com</a> if you wish.</td>
+    </tr>
+    <tr>
+      <td>On-device data (transactions, debts, invoices, reminders, settings, PIN, recovery key)</td>
+      <td><strong>Not affected</strong> by account deletion. Use the app's <strong>Settings → Reset</strong> option, or uninstall the app, to remove on-device data.</td>
+    </tr>
+    <tr>
+      <td>Crashlytics crash reports (if you didn't disable them)</td>
+      <td>Anonymous crash reports retained per Google's standard retention policy (typically 90 days). They contain no transaction content.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Want to keep using the app without an account?</h2>
+<p>You can. Deleting your account does not uninstall Mikdar. After deletion, you remain signed out — every core feature still works locally on your device.</p>
+
+<h2>Questions</h2>
+<p>If you have any question about the deletion process, email <strong><a href="mailto:ashraful5144@gmail.com">ashraful5144@gmail.com</a></strong>.</p>
+
+<footer>
+  <p>&copy; 2026 Mikdar. <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Mikdar</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+    background: #ffffff;
+  }
+  header {
+    border-bottom: 2px solid #2563EB;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+  }
+  h1 { font-size: 28px; margin: 0 0 8px; color: #2563EB; }
+  h2 { font-size: 20px; margin: 32px 0 12px; color: #1f2937; }
+  h3 { font-size: 16px; margin: 20px 0 8px; color: #374151; }
+  p, li { font-size: 15px; }
+  ul { padding-left: 24px; }
+  li { margin-bottom: 6px; }
+  code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .meta { color: #6b7280; font-size: 14px; }
+  a { color: #2563EB; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .note {
+    background: #eff6ff;
+    border-left: 4px solid #2563EB;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Privacy Policy</h1>
+  <p class="meta">App: <strong>Mikdar</strong> &middot; Last updated: 19 June 2026</p>
+</header>
+
+<p>This Privacy Policy explains what information the Mikdar app ("Mikdar", "we", "the app") collects, how it is used, and the choices you have. Mikdar is a personal finance and Islamic finance toolkit built by an independent developer for users in Bangladesh and the global Muslim community.</p>
+
+<div class="note">
+<strong>Summary:</strong> Mikdar is designed to be local-first. Your transactions, debts, invoices, reminders, and budgets stay on your device. Cloud features (Google sign-in, Google Drive backup, Smart Scan OCR) are optional and only activate when you turn them on.
+</div>
+
+<h2>1. Information we collect</h2>
+
+<h3>1.1 Information stored only on your device</h3>
+<p>The following data is created by you while using the app and is stored locally in an encrypted SQLite database on your device. It is <strong>never</strong> transmitted to our servers in unencrypted form:</p>
+<ul>
+  <li>Income, expense, and transfer transactions (amount, category, wallet, note, date)</li>
+  <li>Wallets and their custom names</li>
+  <li>Debt and loan records with parties</li>
+  <li>Invoices and customer contacts you add</li>
+  <li>Budgets and savings goals</li>
+  <li>Reminders</li>
+  <li>Receipt images you scan</li>
+  <li>Zakat, Miras, Waris, Land, EMI and other calculator inputs and history</li>
+  <li>Your security PIN (stored as a one-way hash) and your encrypted recovery key</li>
+  <li>Your business profile (name, business name, phone) if you choose to fill it in</li>
+  <li>Your app preferences (language, theme, currency)</li>
+</ul>
+
+<h3>1.2 Information collected only if you sign in with Google (optional)</h3>
+<p>If you choose to sign in with your Google account to enable cloud backup, we collect and store the following in our Firebase Firestore database under <code>users/{your-uid}</code>:</p>
+<ul>
+  <li>Your Google account name</li>
+  <li>Your Google account email address</li>
+  <li>Your profile photo URL (if your Google profile has one)</li>
+  <li>Your country (auto-detected on first launch)</li>
+  <li>Your app locale (en / bn / ar)</li>
+  <li>The device platform (Android / iOS / web)</li>
+  <li>Account creation timestamp and last-updated timestamp</li>
+</ul>
+<p>If you do not sign in, none of this is collected.</p>
+
+<h3>1.3 Information we do NOT collect</h3>
+<ul>
+  <li>We do not have an analytics SDK. We do not track which screens you visit, which buttons you tap, or how long you use the app.</li>
+  <li>We do not collect your precise device location or GPS.</li>
+  <li>We do not collect your contacts.</li>
+  <li>We do not collect your SMS, call logs, or any other on-device messages.</li>
+  <li>We do not collect advertising identifiers.</li>
+  <li>We do not run any third-party advertising SDK.</li>
+</ul>
+
+<h2>2. How your data is used</h2>
+
+<h3>2.1 On-device data</h3>
+<p>Used solely to render your financial information inside the app: balances, reports, budgets, reminders, calculators, and so on. Nothing about this leaves your device.</p>
+
+<h3>2.2 Google account profile (if signed in)</h3>
+<p>The Firestore profile is used to:</p>
+<ul>
+  <li>Recognise your account across reinstalls so your Drive backups can be restored.</li>
+  <li>Provide aggregate, non-identifying usage statistics to the developer (e.g. "how many active users does the app have this month").</li>
+  <li>Future versions may use it as the anchor for an optional paid subscription. v1 has no paid features.</li>
+</ul>
+
+<h3>2.3 Google Drive backups (if enabled)</h3>
+<p>When you enable Drive backup:</p>
+<ul>
+  <li>The backup file is created on your device and encrypted using <strong>AES-256-CBC</strong> with a key derived from your PIN.</li>
+  <li>Only the encrypted file is uploaded to a <code>Mikdar/</code> folder inside <em>your own</em> Google Drive.</li>
+  <li>The encryption key never leaves your device. We cannot read your backups, and neither can Google.</li>
+  <li>Restoring a backup requires your PIN.</li>
+  <li>You can delete your backups from Google Drive directly at any time.</li>
+</ul>
+
+<h3>2.4 Smart Scan (optional cloud OCR)</h3>
+<p>The Receipt Scanner first tries to read receipts using an on-device OCR engine. If that fails and you opt in, you can use "Smart Scan", which sends the receipt image to <strong>Google's Gemini API</strong> using <em>your own</em> API key that you provide in Settings.</p>
+<ul>
+  <li>Smart Scan is <strong>off by default</strong>.</li>
+  <li>Mikdar does not host or proxy this API call. The image goes directly from your device to Google.</li>
+  <li>Mikdar does not have access to the receipts you scan.</li>
+  <li>Your Gemini API key is stored in your device's secure storage (Android Keystore) and is never sent to our servers.</li>
+</ul>
+
+<h3>2.5 Local notifications</h3>
+<p>Reminders, budget alerts, and recurring transaction alerts are scheduled and fired locally on your device by Android's notification system. They do not involve any network call to us or any third party.</p>
+
+<h2>3. Third parties involved</h2>
+
+<p>Mikdar uses the following third-party services. Each is invoked only as described above. We have no commercial relationship with them beyond using their developer APIs.</p>
+<ul>
+  <li><strong>Google Firebase Authentication</strong> — only when you choose Google sign-in. Provides your secure identity link.</li>
+  <li><strong>Google Cloud Firestore</strong> — stores the small profile document described in section 1.2. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> applies to this data while in Google's infrastructure.</li>
+  <li><strong>Google Drive API</strong> — only when you enable Drive backup. The app uses the <code>drive.file</code> scope, which means it can only access files <em>it</em> created. It cannot see the rest of your Drive.</li>
+  <li><strong>Google Gemini API</strong> — only when you opt in to Smart Scan and provide your own key.</li>
+  <li><strong>Google Firebase Crashlytics</strong> — collects crash reports (stack trace, device model, Android version, app version) so the developer can fix bugs. Does not include the contents of your transactions, wallets, or any personal field. You can disable this in Settings.</li>
+</ul>
+
+<h2>4. Data retention and deletion</h2>
+
+<h3>4.1 On-device data</h3>
+<p>Stays on your device for as long as the app is installed. Uninstalling the app removes all on-device data permanently. You can also clear individual items from inside the app, or use Settings → Reset to wipe everything.</p>
+
+<h3>4.2 Google account profile</h3>
+<p>You can permanently delete your Mikdar account at any time using <strong>Settings → Backup → Delete account</strong>. This action:</p>
+<ul>
+  <li>Deletes your Firestore profile document.</li>
+  <li>Deletes your Firebase Authentication user.</li>
+  <li>Revokes Mikdar's access to your Google account.</li>
+</ul>
+<p>If you cannot access the in-app option (e.g. you no longer have the device), you can request account deletion via our <a href="delete-account.html">Account Deletion page</a>.</p>
+
+<h3>4.3 Google Drive backups</h3>
+<p>Encrypted backups live in your own Google Drive. Mikdar does not delete them automatically. You can delete them directly from Drive, or via the in-app cloud backup list.</p>
+
+<h2>5. Permissions</h2>
+
+<p>Mikdar may request the following Android permissions, each only for the purpose listed:</p>
+<ul>
+  <li><strong>Notifications (POST_NOTIFICATIONS)</strong> — to show your reminders and budget alerts.</li>
+  <li><strong>Camera (CAMERA)</strong> — only when you tap the receipt scanner.</li>
+  <li><strong>Read media images (READ_MEDIA_IMAGES)</strong> — only when you pick a saved receipt photo from your gallery.</li>
+  <li><strong>Receive boot completed (RECEIVE_BOOT_COMPLETED)</strong> — to re-arm scheduled reminders after your phone reboots.</li>
+  <li><strong>Wake lock (WAKE_LOCK)</strong> — to keep the CPU briefly awake when a scheduled reminder fires.</li>
+</ul>
+
+<h2>6. Security</h2>
+<ul>
+  <li>The on-device database is protected by your PIN. You can also enable biometric unlock (fingerprint / face).</li>
+  <li>Drive backups are AES-256 encrypted before upload.</li>
+  <li>All network calls use HTTPS.</li>
+  <li>The app does not allow cleartext HTTP traffic.</li>
+  <li>Release builds are obfuscated using R8 to make reverse engineering harder.</li>
+</ul>
+<p>No system is perfectly secure. If you lose your PIN and have not saved your recovery key, your data cannot be recovered.</p>
+
+<h2>7. Children</h2>
+<p>Mikdar is a general-audience app for users managing personal or family finances. It is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+<h2>8. International users</h2>
+<p>Mikdar is available worldwide. When you sign in with Google, the profile data described in section 1.2 may be processed and stored in Google's data centres in regions you can review in <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. By signing in, you consent to that processing.</p>
+
+<h2>9. Your rights</h2>
+<p>You can:</p>
+<ul>
+  <li>Use the app entirely without signing in.</li>
+  <li>Sign out at any time from Settings → Backup.</li>
+  <li>Delete your account from Settings → Backup → Delete account.</li>
+  <li>Disable Crashlytics, automatic Drive backup, and Smart Scan independently in Settings.</li>
+  <li>Export your data as a local encrypted backup file at any time.</li>
+  <li>Email us with any access, correction, or deletion request (see contact below).</li>
+</ul>
+
+<h2>10. Changes to this policy</h2>
+<p>If we change this policy materially, we will update the "Last updated" date at the top and surface a notice inside the app. Continued use of the app after the change constitutes acceptance.</p>
+
+<h2>11. Contact</h2>
+<p>For privacy questions, data-access requests, or account deletion help, email:
+<br><strong><a href="mailto:ashraful5144@gmail.com">ashraful5144@gmail.com</a></strong></p>
+<p>We respond to verified requests within 30 days.</p>
+
+<footer>
+  <p>&copy; 2026 Mikdar. <a href="index.html">Home</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="delete-account.html">Delete Account</a></p>
+</footer>
+
+</body>
+</html>
