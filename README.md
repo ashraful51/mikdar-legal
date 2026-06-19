@@ -120,7 +120,7 @@ action needed.
 
 ## A note on the contact email
 
-Every file currently lists `ashraful5144@gmail.com` as the contact
+Every file currently lists `info@ezomfy.com` as the contact
 address. That's fine for launch, but if you ever want a dedicated
 support inbox (e.g. `support@mikdar.app`), do a find-and-replace across
 all four HTML files and push the change.
