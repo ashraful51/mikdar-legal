@@ -3,107 +3,561 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mikdar — Legal</title>
+<title>Mikdar — Personal Finance and Islamic Finance, in your pocket</title>
+<meta name="description" content="Mikdar is a free, local-first personal finance app with built-in Islamic finance tools (Zakat, Miras, Waris) and 20+ calculators. English, বাংলা, العربية. Works offline.">
+<meta name="keywords" content="Mikdar, personal finance, expense tracker, Zakat calculator, Miras, Waris, Islamic finance, Bangladesh, halal, budget, debt tracker, offline finance app">
+<meta property="og:title" content="Mikdar — Personal Finance and Islamic Finance">
+<meta property="og:description" content="Free, offline-first finance app for Muslims. Zakat, Miras, Waris, budgets, debts, invoices — in English, বাংলা, العربية.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563EB'%3E%3Cpath d='M21 7.5V6.5C21 5.4 20.1 4.5 19 4.5H5C3.34 4.5 2 5.84 2 7.5v9c0 1.66 1.34 3 3 3h14c1.1 0 2-.9 2-2v-1c.6-.34 1-.97 1-1.7V9.2c0-.73-.4-1.36-1-1.7zM20 9.5v5h-7v-5h7zM5 17.5c-.55 0-1-.45-1-1v-9c0-.55.45-1 1-1h14v1h-6c-1.1 0-2 .9-2 2v5c0 1.1.9 2 2 2h6v1H5z'/%3E%3Ccircle cx='16' cy='12' r='1.5'/%3E%3C/svg%3E">
 <style>
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
     color: #1f2937;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 32px 20px 64px;
+    margin: 0;
     background: #ffffff;
   }
-  header { text-align: center; margin-bottom: 40px; }
-  h1 {
-    font-size: 36px;
-    margin: 0 0 8px;
-    color: #2563EB;
-    letter-spacing: -0.5px;
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
-  .tagline { color: #6b7280; font-size: 16px; margin: 0; }
-  h2 { font-size: 20px; margin: 32px 0 12px; color: #1f2937; }
-  p, li { font-size: 15px; }
-  ul.cards {
+  .narrow {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #2563EB 0%, #1e40af 100%);
+    color: #ffffff;
+    padding: 56px 20px 64px;
+    text-align: center;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.30);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+  }
+  .hero h1 {
+    font-size: 44px;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    letter-spacing: -1px;
+    font-weight: 800;
+  }
+  .hero .tagline {
+    font-size: 18px;
+    opacity: 0.92;
+    margin: 0 auto 28px;
+    max-width: 560px;
+  }
+  .hero .lang {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.82;
+    letter-spacing: 0.4px;
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.1s, background 0.15s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary {
+    background: #ffffff;
+    color: #2563EB !important;
+  }
+  .btn.primary:hover { background: #f3f4f6; text-decoration: none; }
+  .btn.ghost {
+    background: rgba(255,255,255,0.10);
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.40);
+  }
+  .btn.ghost:hover { background: rgba(255,255,255,0.18); text-decoration: none; }
+
+  /* Sections */
+  section { padding: 56px 20px; }
+  section.alt { background: #f9fafb; }
+  h2.section-title {
+    font-size: 28px;
+    margin: 0 0 8px;
+    color: #1f2937;
+    letter-spacing: -0.3px;
+    text-align: center;
+  }
+  .section-sub {
+    color: #6b7280;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto 36px;
+    max-width: 520px;
+  }
+
+  /* Feature grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
     list-style: none;
     padding: 0;
-    margin: 24px 0;
+    margin: 0;
+  }
+  .feature {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .feature:hover {
+    border-color: #2563EB;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+  }
+  .feature .icon {
+    width: 44px;
+    height: 44px;
+    background: #eff6ff;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .feature h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    color: #1f2937;
+  }
+  .feature p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+
+  /* Tool pills */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 24px auto 0;
+    max-width: 720px;
+  }
+  .pill {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13.5px;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  /* Privacy callout */
+  .promise {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .promise h3 {
+    margin: 0 0 12px;
+    color: #2563EB;
+    font-size: 18px;
+  }
+  .promise ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #374151;
+  }
+  .promise li {
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+
+  /* FAQ */
+  .faq details {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq details[open] { border-color: #2563EB; }
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 15.5px;
+    list-style: none;
+    position: relative;
+    padding-right: 28px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2563EB;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .faq details[open] summary::after { content: "−"; }
+  .faq .answer {
+    color: #4b5563;
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  /* Legal cards */
+  ul.legal-cards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  ul.cards li { margin: 0; }
-  ul.cards a {
+  ul.legal-cards li { margin: 0; }
+  ul.legal-cards a {
     display: block;
     padding: 20px;
-    background: #f9fafb;
+    background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     text-decoration: none;
     color: #1f2937;
     transition: border-color 0.15s, background 0.15s;
   }
-  ul.cards a:hover {
+  ul.legal-cards a:hover {
     border-color: #2563EB;
     background: #eff6ff;
   }
-  ul.cards strong {
+  ul.legal-cards strong {
     display: block;
     color: #2563EB;
     font-size: 16px;
     margin-bottom: 4px;
   }
-  ul.cards span { color: #6b7280; font-size: 14px; }
+  ul.legal-cards span { color: #6b7280; font-size: 13.5px; }
+
+  /* Contact */
+  .contact-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-card a { font-weight: 600; }
+
   a { color: #2563EB; text-decoration: none; }
   a:hover { text-decoration: underline; }
+
   footer {
-    margin-top: 48px;
-    padding-top: 16px;
     border-top: 1px solid #e5e7eb;
-    color: #6b7280;
-    font-size: 13px;
+    padding: 28px 20px;
     text-align: center;
+    color: #6b7280;
+    font-size: 13.5px;
+  }
+  footer a { color: #6b7280; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 34px; }
+    .hero .tagline { font-size: 16px; }
+    section { padding: 44px 20px; }
+    h2.section-title { font-size: 24px; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Mikdar</h1>
-  <p class="tagline">Personal finance and Islamic finance, in your pocket.</p>
+<!-- ============ Hero ============ -->
+<header class="hero">
+  <div class="container">
+    <span class="badge">FREE · OFFLINE-FIRST · NO ADS</span>
+    <h1>Mikdar</h1>
+    <p class="tagline">
+      Personal finance &amp; Islamic finance, in your pocket.<br>
+      Track every taka, calculate Zakat, manage debts — all without internet.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#features">See what's inside</a>
+      <a class="btn ghost" href="#download">Download</a>
+    </div>
+    <div class="lang">English &middot; বাংলা &middot; العربية</div>
+  </div>
 </header>
 
-<h2>Legal documents</h2>
-<ul class="cards">
-  <li>
-    <a href="privacy.html">
-      <strong>Privacy Policy</strong>
-      <span>What data we collect, how it's used, and your choices.</span>
-    </a>
-  </li>
-  <li>
-    <a href="terms.html">
-      <strong>Terms of Service</strong>
-      <span>The agreement that governs your use of the app.</span>
-    </a>
-  </li>
-  <li>
-    <a href="delete-account.html">
-      <strong>Delete Your Account</strong>
-      <span>How to permanently remove your account and server-side data.</span>
-    </a>
-  </li>
-</ul>
+<!-- ============ Features ============ -->
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">Everything you need to manage money</h2>
+    <p class="section-sub">One app for the household budget, the family ledger, the small business, and the Islamic finance side of life.</p>
 
-<h2>About Mikdar</h2>
-<p>Mikdar is a free, local-first personal finance app with built-in Islamic finance tools (Zakat, Miras, Waris, Hijri calendar) and a collection of practical calculators (EMI, SIP, currency, unit, time zone, GPA, land, tip, and more). Available in English, বাংলা, and العربية. Works offline by default; cloud features are optional.</p>
+    <ul class="features">
+      <li class="feature">
+        <div class="icon">💰</div>
+        <h3>Cash Manager</h3>
+        <p>Income, expenses, transfers across cash, bKash, Nagad, Rocket, bank. Monthly net, wallet balances, category reports — all at a glance.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🕌</div>
+        <h3>Zakat Calculator</h3>
+        <p>Compute Zakat on cash, gold, silver, livestock, and agricultural produce. Nisab in BDT auto-updates with the gold/silver rate.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">⚖️</div>
+        <h3>Miras &amp; Waris</h3>
+        <p>Solve Islamic inheritance for any family structure. Hanafi-aware shares with clear, step-by-step breakdowns.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🤝</div>
+        <h3>Debt Tracker</h3>
+        <p>Who owes whom. Family, friends, customers — keep loans clear with a party ledger and reminders.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">📊</div>
+        <h3>Budgets &amp; Reports</h3>
+        <p>Set monthly category budgets. See where the money actually went with clean charts and per-wallet flow.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🎯</div>
+        <h3>Savings Goals</h3>
+        <p>Track Hajj fund, wedding savings, emergency reserve. Visual progress with a target date.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🔁</div>
+        <h3>Recurring &amp; Reminders</h3>
+        <p>Salary, rent, subscriptions add themselves on schedule. Reminders for bills, birthdays, debt due dates.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🧾</div>
+        <h3>Invoices</h3>
+        <p>Generate clean invoices for small business clients. PDF-ready, multi-language.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">📷</div>
+        <h3>Receipt Scanner</h3>
+        <p>OCR-powered receipt capture. On-device by default; optional Smart Scan with your own Gemini API key.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🔒</div>
+        <h3>PIN + Biometric</h3>
+        <p>PIN lock, fingerprint, face unlock. A 24-character recovery key gives you offline access if you forget the PIN.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">☁️</div>
+        <h3>Optional Drive Backup</h3>
+        <p>AES-256 encrypted backups to your own Google Drive. Mikdar can't read them — only you can, with your PIN.</p>
+      </li>
+      <li class="feature">
+        <div class="icon">🌍</div>
+        <h3>3 Languages, 16 Currencies</h3>
+        <p>English, বাংলা, العربية with full RTL. BDT default, with USD, SAR, AED, INR, PKR, and more.</p>
+      </li>
+    </ul>
+  </div>
+</section>
 
-<h2>Contact</h2>
-<p>Email: <strong><a href="mailto:info@ezomfy.com">info@ezomfy.com</a></strong></p>
+<!-- ============ Tools grid ============ -->
+<section class="alt">
+  <div class="container">
+    <h2 class="section-title">20+ practical calculators</h2>
+    <p class="section-sub">Everything from the Islamic finance side to everyday math, in one Tools menu.</p>
+    <div class="pills">
+      <span class="pill">🕌 Zakat</span>
+      <span class="pill">⚖️ Miras</span>
+      <span class="pill">📜 Waris</span>
+      <span class="pill">🐄 Livestock Zakat</span>
+      <span class="pill">🌾 Agricultural Zakat</span>
+      <span class="pill">🏦 EMI</span>
+      <span class="pill">📈 SIP</span>
+      <span class="pill">🔄 Loan Comparison</span>
+      <span class="pill">💱 Currency</span>
+      <span class="pill">📏 Unit Converter</span>
+      <span class="pill">🕒 Time Zone</span>
+      <span class="pill">🎓 GPA / CGPA</span>
+      <span class="pill">📅 Date Difference</span>
+      <span class="pill">🧮 Tip Splitter</span>
+      <span class="pill">🍽️ Bill Splitter</span>
+      <span class="pill">🏷️ Discount Stacker</span>
+      <span class="pill">🏞️ Land Calculator</span>
+      <span class="pill">📆 Hijri Calendar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Privacy promise ============ -->
+<section id="privacy">
+  <div class="container">
+    <h2 class="section-title">Built around your privacy</h2>
+    <p class="section-sub">Your money data is yours. We've designed Mikdar so most of it never leaves your phone.</p>
+
+    <div class="promise">
+      <h3>What we don't do</h3>
+      <ul>
+        <li>No analytics SDK — we don't track which screens you visit.</li>
+        <li>No advertising. No third-party ad networks. Ever.</li>
+        <li>No selling, sharing, or monetising your data.</li>
+        <li>No background uploads of your transactions to our servers.</li>
+        <li>No mandatory account — every core feature works signed out.</li>
+      </ul>
+      <h3 style="margin-top:20px;">What's optional and on your terms</h3>
+      <ul>
+        <li><strong>Google sign-in</strong> — only needed to enable Drive backup. You can delete your account in-app, anytime.</li>
+        <li><strong>Drive backup</strong> — files are AES-256 encrypted before upload. Only your PIN can open them.</li>
+        <li><strong>Smart Scan OCR</strong> — uses your own Gemini API key. Off by default.</li>
+      </ul>
+      <p style="margin-top:16px; font-size:14px; color:#6b7280;">Full details in the <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="alt faq">
+  <div class="container">
+    <h2 class="section-title">Frequently asked</h2>
+    <p class="section-sub">If your question isn't here, email us — we read everything.</p>
+
+    <details>
+      <summary>Is Mikdar really free?</summary>
+      <div class="answer">Yes. The current version has no paid features, no in-app purchases, and no ads. A future version may introduce an optional subscription for power features, but everything available today stays free.</div>
+    </details>
+
+    <details>
+      <summary>Do I need an internet connection?</summary>
+      <div class="answer">No. Every core feature — transactions, debts, budgets, calculators, reports — works completely offline. Internet is only needed for the optional Google Drive backup, optional Google sign-in, and the optional Smart Scan OCR.</div>
+    </details>
+
+    <details>
+      <summary>How accurate are the Zakat and Miras calculators?</summary>
+      <div class="answer">The calculators are built on widely accepted Hanafi-school principles and are useful as a planning tool. They are <strong>educational</strong>, not a fatwa. Before paying a significant Zakat amount or distributing an inheritance, please consult a qualified scholar to confirm your situation.</div>
+    </details>
+
+    <details>
+      <summary>What happens if I forget my PIN?</summary>
+      <div class="answer">During setup, Mikdar gives you a 24-character recovery key. Write it down or save it somewhere safe (a password manager works well). If you forget the PIN but have the recovery key, you can recover full access. If you lose both, your encrypted data cannot be recovered — this is by design so that even we cannot access your records.</div>
+    </details>
+
+    <details>
+      <summary>Where is my data stored?</summary>
+      <div class="answer">On your phone, in an encrypted SQLite database. The only data that reaches our servers is a small profile document (name, email, country) — and only if you sign in with Google. If you enable Drive backup, the file uploaded to your own Google Drive is AES-256 encrypted before it leaves your phone.</div>
+    </details>
+
+    <details>
+      <summary>Can I use Mikdar for my small business?</summary>
+      <div class="answer">Yes. The Invoices module, Debt Tracker, Recurring Transactions, and per-customer ledgers are built with small shops and freelancers in mind. It is not a replacement for full bookkeeping software, but it covers daily cash flow, lending records, and client billing well.</div>
+    </details>
+
+    <details>
+      <summary>How do I delete my account?</summary>
+      <div class="answer">Open the app → <strong>Settings → Backup → Delete account</strong>. That removes your profile from our servers, deletes your authentication record, and revokes Drive access. If you no longer have the app, see the <a href="delete-account.html">Account Deletion page</a> for an email-based request route.</div>
+    </details>
+
+    <details>
+      <summary>What languages does Mikdar support?</summary>
+      <div class="answer">English, বাংলা (Bengali), and العربية (Arabic) with full right-to-left layout support. The interface, numbers, dates, and currency formatting all adapt to your chosen language.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ Download ============ -->
+<section id="download">
+  <div class="container narrow" style="text-align:center;">
+    <h2 class="section-title">Get Mikdar</h2>
+    <p class="section-sub">Available on the Google Play Store. iOS support is on the roadmap.</p>
+    <div class="cta-row" style="margin-top: 16px;">
+      <a class="btn primary" style="background:#2563EB; color:#fff !important;" href="https://play.google.com/store/apps/details?id=com.mikdar.app">Get on Google Play</a>
+    </div>
+    <p style="color:#9ca3af; font-size:13px; margin-top: 16px;">Link goes live once the app is published.</p>
+  </div>
+</section>
+
+<!-- ============ Legal ============ -->
+<section class="alt">
+  <div class="container">
+    <h2 class="section-title">Legal documents</h2>
+    <p class="section-sub">Everything you'd expect, in plain language.</p>
+    <ul class="legal-cards">
+      <li>
+        <a href="privacy.html">
+          <strong>Privacy Policy</strong>
+          <span>What data we collect, how it's used, your choices.</span>
+        </a>
+      </li>
+      <li>
+        <a href="terms.html">
+          <strong>Terms of Service</strong>
+          <span>The agreement that governs your use of Mikdar.</span>
+        </a>
+      </li>
+      <li>
+        <a href="delete-account.html">
+          <strong>Delete Your Account</strong>
+          <span>Permanently remove your account and server-side data.</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section id="contact">
+  <div class="container narrow">
+    <h2 class="section-title">Get in touch</h2>
+    <p class="section-sub">Bug reports, feature requests, privacy questions, partnership ideas — all welcome.</p>
+    <div class="contact-card">
+      <p style="margin: 0 0 8px; color:#6b7280; font-size:14px;">Email</p>
+      <a href="mailto:info@ezomfy.com" style="font-size:18px;">info@ezomfy.com</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <p>&copy; 2026 Mikdar.</p>
+  <p>
+    &copy; 2026 Mikdar. Built with care in Bangladesh.<br>
+    <a href="privacy.html">Privacy</a> &middot;
+    <a href="terms.html">Terms</a> &middot;
+    <a href="delete-account.html">Delete Account</a> &middot;
+    <a href="mailto:info@ezomfy.com">Contact</a>
+  </p>
 </footer>
 
 </body>
